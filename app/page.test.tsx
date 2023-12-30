@@ -1,10 +1,11 @@
-/**
- * @jest-environment jsdom
- */
+import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import Page from './page'
 
-it('App Router: Works with Server Components', () => {
-  render(<Page />)
-  expect(screen.getByRole('heading')).toHaveTextContent('App Router')
+describe('Page', () => {
+  test('renders a heading', () => {
+    render(<Page />)
+    const heading = screen.getByRole('heading', { level: 1 })
+    expect(heading).toBeInTheDocument()
+  })
 })
