@@ -1,35 +1,69 @@
-# Next.js + Jest
+# Color Contrast Checker
 
-This example shows how to configure Jest to work with Next.js.
+## Project Overview
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript. This example also shows how to use Jest with the App Router and React Server Components.
+This Color Contrast Checker is a web application designed to evaluate the color contrast between two chosen colors. It aims to provide users with feedback on whether the contrast ratio meets accessibility standards (a grade based on [WCAG standards](https://www.w3.org/TR/WCAG21/)), making it easy for users with visual impairments to perceive content.
 
-> **Note:** Since tests can be co-located alongside other files inside the App Router, we have placed those tests in `app/` to demonstrate this behavior (which is different than `pages/`). You can still place all tests in `__tests__` if you prefer.
+<img height="400" alt="Screenshot of default state" src="https://github.com/JTKsson/jolint-dashboard/assets/116844306/8896fe47-20ac-4b21-bc1f-493adcf392c2">
+<img height="400" alt="Screenshot of changing state" src="https://github.com/JTKsson/jolint-dashboard/assets/116844306/c25294f6-84e5-4480-ad14-a21872f554ea">
 
-## Deploy your own
+## Components
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-jest&project-name=with-jest&repository-name=with-jest)
+1. **Header:** Displays the title of the application.
+2. **Home:** Main component managing color input and displaying contrast results.
+3. **ColorInput:** A reusable component for color input (either using the color picker or entering a HEX value).
+4. **ColorPreview:** Displays a visual preview of the selected colors for better user understanding.
+5. **ContrastResult:** Displays the pass/fail result. If passed the text will turn <font color="green">green</font>, if failed it will turn <font color="red">red</font>.
+6. **ContrastRatio:** Displays the contrast ratio to indicate whether the value is above or below the acceptble ratio (a 4.5 to 1 ratio).
+7. **ContrastGrade:** Displays the grade of Great, Okay or Bad.
+8. **Footer:** Displays the footer of the application.
 
-## How to Use
+## Testing Requirements
 
-Quickly get started using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app#readme)!
+The testing strategy for this project follows Test Driven Development (TDD) principles. The goal is to ensure the reliability and correctness of the Color Contrast Checker application.
 
-In your terminal, run the following command:
+### Unit Tests
+
+- Minimum of 20 unit tests covering various components and functionalities
+
+- Must include tests using `getByRole`, `getAllBy`, `queryBy`, and at least 2 different events.
+
+### Integration Tests
+
+- Minimum of 3 integration tests\*
+
+\*Must include testing some aspect of state changing.
+
+### Test Relevance and Coherence
+
+- Tests should be relevant to the functionality of the application.
+- Tests should be coherent, allowing a semi-experienced developer to understand what they are testing.
+
+## Getting Started
+
+To set up the project and run the tests locally, follow these steps:
+
+1. Fork this repository.
+2. Install dependencies:
 
 ```bash
-npx create-next-app --example with-jest with-jest-app
+npm install
 ```
 
+2. Start the development server:
+
 ```bash
-yarn create next-app --example with-jest with-jest-app
+npm run dev
 ```
 
+3. Run test environment:
+
 ```bash
-pnpm create next-app --example with-jest with-jest-app
+npm run test
 ```
 
-## Running Tests
+or run the testing by default:
 
 ```bash
-npm test
+npm run test:watch
 ```
