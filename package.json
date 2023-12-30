@@ -4,15 +4,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "jest --watch",
-    "test:ci": "jest --ci"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@testing-library/user-event": "^14.5.2",
+    "@types/tinycolor2": "^1.4.6",
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "server-only": "^0.0.1"
+    "server-only": "^0.0.1",
+    "tinycolor2": "^1.6.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "6.1.5",
